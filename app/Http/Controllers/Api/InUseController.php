@@ -22,10 +22,16 @@ class InUseController extends Controller
         if ($request->customer_id) {
             $inUses->where('customer_id', $request->customer_id);
         }
+        if ($request->item_id) {
+            $inUses->whereHas('items', function ($query) use ($request) {
+                $query->where('item_id', $request->item_id)->orWhere('barcode', $request->item_id)
+                    ->orWhere('name', 'like', '%' . $request->item_id . '%');
+            });
+        }
         if ($request->user_id) {
             $inUses->where('user_id', $request->user_id);
         }
-        if ($request->in_use) {
+        if ($request->in_use || $request->in_use == '0') {
             $inUses->where('in_use', $request->in_use);
         }
         if ($request->date_from && $request->date_to) {
@@ -90,10 +96,15 @@ class InUseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateInUseRequest $request,  $id)
+    public function update(Request $request,  $id)
     {
         //
+        $inUse = InUse::find($id);
+        $inUse->update([
+            'in_use' => $request->in_use,
+        ]);
 
+        return response()->json($inUse);
     }
 
     /**

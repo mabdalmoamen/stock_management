@@ -39,14 +39,31 @@
                                     <div
                                         class="card mb-2"
                                         @click="addToCart(item)"
+                                        style="cursor: pointer"
                                     >
                                         <div class="card-body">
-                                            <h5 class="card-title">
+                                            <span
+                                                class="float-start position-absolute"
+                                                style="right: 0; top: 0"
+                                                :class="`
+                                                        ${
+                                                            item.quantity < 1
+                                                                ? 'badge bg-danger'
+                                                                : 'badge bg-success'
+                                                        }
+                                                    `"
+                                            >
+                                                {{ item.quantity }}
+                                            </span>
+                                            <img
+                                                :src="item.image"
+                                                width="50"
+                                                height="50"
+                                            />
+                                            <!-- v-else add default image from placeholder -->
+                                            <div class="card-text text-end">
                                                 {{ item.name }}
-                                            </h5>
-                                        </div>
-                                        <div class="card-footer">
-                                            {{ item.quantity }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -72,11 +89,16 @@
                                             <div
                                                 class="d-flex justify-content-between"
                                             >
+                                                <img
+                                                    :src="item.image"
+                                                    width="50"
+                                                    height="50"
+                                                />
                                                 <h5 class="card-title">
                                                     {{ item.name }}
                                                 </h5>
                                                 <button
-                                                    class="btn btn-danger"
+                                                    class="btn btn-xs btn-danger"
                                                     @click="
                                                         removeFromCart(item)
                                                     "

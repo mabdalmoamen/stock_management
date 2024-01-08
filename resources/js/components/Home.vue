@@ -1,7 +1,7 @@
 <template>
     <div class="card text-center">
-        <div class="card-header" :style="`background-color:${randomColors[0]}`">
-            <h1 class="card-title text-danger">الرئيسية</h1>
+        <div class="card-header">
+            <h5 class="card-title">الرئيسية</h5>
         </div>
         <div class="card-body">
             <div class="row">
@@ -12,11 +12,10 @@
                                 {{ users.length }}
                             </h5>
                         </div>
-                        <div
-                            class="card-footer"
-                            :style="`background-color:${randomColors[1]}`"
-                        >
-                            المستخدمون
+                        <div class="card-footer">
+                            <router-link to="/users" class="nav-link"
+                                >المستخدمين</router-link
+                            >
                         </div>
                     </div>
                 </div>
@@ -27,11 +26,10 @@
                                 {{ employee.length }}
                             </h5>
                         </div>
-                        <div
-                            class="card-footer"
-                            :style="`background-color:${randomColors[2]}`"
-                        >
-                            الموظفين
+                        <div class="card-footer">
+                            <router-link to="/employees" class="nav-link"
+                                >الموظفون</router-link
+                            >
                         </div>
                     </div>
                 </div>
@@ -42,11 +40,22 @@
                                 {{ items.length }}
                             </h5>
                         </div>
-                        <div
-                            class="card-footer"
-                            :style="`background-color:${randomColors[3]}`"
-                        >
-                            المعدات
+                        <div class="card-footer">
+                            <router-link to="/items" class="nav-link"
+                                >المعدات</router-link
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">؟</h5>
+                        </div>
+                        <div class="card-footer">
+                            <router-link to="/reports" class="nav-link"
+                                >التقارير</router-link
+                            >
                         </div>
                     </div>
                 </div>

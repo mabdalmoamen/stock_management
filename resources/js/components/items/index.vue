@@ -20,6 +20,8 @@
                     <tr>
                         <th class="w-50">البيان</th>
                         <th>الكمية</th>
+                        <th>الصورة</th>
+                        <th>الباركود</th>
                         <th class="w-25">أكشن</th>
                     </tr>
                 </thead>
@@ -27,6 +29,10 @@
                     <tr v-for="item in filterSearch" :key="item.id">
                         <td>{{ item.name }}</td>
                         <td>{{ item.quantity }}</td>
+                        <td>
+                            <img :src="item.image" width="50" height="50" />
+                        </td>
+                        <td>{{ item.barcode }}</td>
                         <td>
                             <router-link
                                 :to="`/items/${item.id}`"

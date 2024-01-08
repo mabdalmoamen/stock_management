@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '16722db031f01249400c3f9a04207213e0b8c50b',
+        'reference' => '71d9ea613906e63b0bbfae5311b278e5c4d38228',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -364,6 +364,15 @@
                 0 => 'v10.39.0',
             ),
         ),
+        'intervention/image' => array(
+            'pretty_version' => '2.7.2',
+            'version' => '2.7.2.0',
+            'reference' => '04be355f8d6734c826045d02a1079ad658322dad',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intervention/image',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -382,7 +391,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '16722db031f01249400c3f9a04207213e0b8c50b',
+            'reference' => '71d9ea613906e63b0bbfae5311b278e5c4d38228',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -430,15 +439,6 @@
             'reference' => '3dbf8a8e914634c48d389c1234552666b3d43754',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/serializable-closure',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'laravel/tinker' => array(
-            'pretty_version' => 'v2.8.2',
-            'version' => '2.8.2.0',
-            'reference' => 'b936d415b252b499e8c3b1f795cd4fc20f57e1f3',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../laravel/tinker',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -548,13 +548,13 @@
             'dev_requirement' => false,
         ),
         'nikic/php-parser' => array(
-            'pretty_version' => 'v4.18.0',
-            'version' => '4.18.0.0',
-            'reference' => '1bcbb2179f97633e98bbbc87044ee2611c7d7999',
+            'pretty_version' => 'v5.0.0',
+            'version' => '5.0.0.0',
+            'reference' => '4a21235f7e56e713259a6f76bf4b5ea08502b9dc',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nikic/php-parser',
             'aliases' => array(),
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'nunomaduro/collision' => array(
             'pretty_version' => 'v7.10.0',
@@ -775,15 +775,6 @@
             'provided' => array(
                 0 => '1.0|2.0|3.0',
             ),
-        ),
-        'psy/psysh' => array(
-            'pretty_version' => 'v0.11.22',
-            'version' => '0.11.22.0',
-            'reference' => '128fa1b608be651999ed9789c95e6e2a31b5802b',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../psy/psysh',
-            'aliases' => array(),
-            'dev_requirement' => false,
         ),
         'ralouphie/getallheaders' => array(
             'pretty_version' => '3.0.3',

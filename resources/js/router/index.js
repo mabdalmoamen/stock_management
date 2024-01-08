@@ -76,7 +76,12 @@ const routes = [
         name: "employee-create",
         component: () => import("../components/employees/create.vue"),
     },
-    // Users
+    // reports
+    {
+        path: "/reports",
+        name: "reports",
+        component: () => import("../components/reports.vue"),
+    },
 ];
 
 const router = createRouter({

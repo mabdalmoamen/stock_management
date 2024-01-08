@@ -13,11 +13,14 @@ class InUse extends Model
     // casts
     protected $casts = [
         'in_use' => 'boolean',
+        'created_at' => 'datetime:Y-m-d h:i:s a',
+        'updated_at' => 'datetime:Y-m-d h:i:s a',
+
     ];
 
     public function items()
     {
-        return $this->hasMany(InUseItem::class, 'in_use_id', 'id');
+        return $this->hasMany(InUseItem::class, 'in_use_id', 'id')->with('item');
     }
     public function customer()
     {

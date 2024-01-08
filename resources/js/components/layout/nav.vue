@@ -46,6 +46,11 @@
                             >صرف معدة</router-link
                         >
                     </li>
+                    <li class="nav-item">
+                        <router-link to="/reports" class="nav-link"
+                            >التقارير</router-link
+                        >
+                    </li>
                 </ul>
                 <router-link
                     v-if="$route.path === '/login'"

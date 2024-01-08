@@ -10,6 +10,18 @@
                         {{ error }}
                     </div>
                     <form @submit.prevent="create">
+                        <!-- image -->
+
+                        <div class="form-group mb-3">
+                            <label class="mb-1" for="image">الصورة</label>
+                            <input
+                                type="file"
+                                class="form-control"
+                                id="image"
+                                @change="onFileSelected"
+                            />
+                        </div>
+
                         <div class="form-group mb-3">
                             <label class="mb-1" for="name">الاسم</label>
                             <input
@@ -18,6 +30,17 @@
                                 id="name"
                                 v-model="form.name"
                                 required
+                            />
+                        </div>
+                        <!-- barcode -->
+
+                        <div class="form-group mb-3">
+                            <label class="mb-1" for="barcode">الباركود</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="barcode"
+                                v-model="form.barcode"
                             />
                         </div>
                         <div class="form-group mb-3">
@@ -56,6 +79,18 @@ export default {
         };
     },
     methods: {
+        onFileSelected(event) {
+            let file = event.target.files[0];
+            if (file.size > 1048770) {
+                alert("الصورة كبيرة جداً");
+            } else {
+                let reader = new FileReader();
+                reader.onload = (event) => {
+                    this.form.image = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        },
         async create() {
             this.error = null;
             if (this.form.name == "" || this.form.quantity == "") {

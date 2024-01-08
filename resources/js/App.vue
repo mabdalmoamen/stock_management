@@ -1,10 +1,7 @@
 <template>
     <div class="container-fluid">
         <nav-app />
-        <div
-            class="container mt-5 min-h-50"
-            style="background-color: rgb(68, 109, 77)"
-        >
+        <div class="container-fluid mt-2 min-h-50">
             <router-view></router-view>
         </div>
     </div>

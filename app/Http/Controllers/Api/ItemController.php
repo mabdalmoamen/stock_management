@@ -7,9 +7,13 @@ use App\Models\Item;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
 use Illuminate\Http\Request;
+use App\Traits\ImagesTrait;
+use function PHPUnit\Framework\isEmpty;
 
 class ItemController extends Controller
 {
+    use ImagesTrait;
+
     /**
      * Display a listing of the resource.
      */
@@ -33,12 +37,18 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->image && $request->image != null) {
+            $image_url = $this->UploadImage($request->image, 'images/');
+        } else {
+            $image_url = 'images/default.png';
+        }
         //
         $item = Item::create([
             'name' => $request->name,
             'quantity' => $request->quantity,
             'status' => $request->status,
             'barcode' => $request->barcode,
+            'image' => $image_url
         ]);
 
         return response()->json($item);

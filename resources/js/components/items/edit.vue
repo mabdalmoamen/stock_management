@@ -19,6 +19,15 @@
                             />
                         </div>
                         <div class="form-group mb-3">
+                            <label class="mb-1" for="barcode">الباركود</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="barcode"
+                                v-model="form.barcode"
+                            />
+                        </div>
+                        <div class="form-group mb-3">
                             <label class="mb-1" for="qty">المخزون</label>
                             <input
                                 type="number"
