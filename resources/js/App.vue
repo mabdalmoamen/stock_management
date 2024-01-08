@@ -20,4 +20,13 @@ export default {
     color: white !important;
     border-radius: 5px;
 }
+.card-header {
+    background-color: rgb(29 157 199 / 55%);
+}
+.card {
+    background-color: #3d8595ab;
+}
+body {
+    background-color: #e09d9d;
+}
 </style>
