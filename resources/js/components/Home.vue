@@ -1,7 +1,7 @@
 <template>
     <div class="card text-center">
-        <div class="card-header">
-            <h1 class="card-title">الرئيسية</h1>
+        <div class="card-header" :style="`background-color:${randomColors[0]}`">
+            <h1 class="card-title text-danger">الرئيسية</h1>
         </div>
         <div class="card-body">
             <div class="row">
@@ -12,7 +12,12 @@
                                 {{ users.length }}
                             </h5>
                         </div>
-                        <div class="card-footer">Users</div>
+                        <div
+                            class="card-footer"
+                            :style="`background-color:${randomColors[1]}`"
+                        >
+                            المستخدمون
+                        </div>
                     </div>
                 </div>
                 <div class="col-4">
@@ -22,7 +27,12 @@
                                 {{ employee.length }}
                             </h5>
                         </div>
-                        <div class="card-footer">Employee</div>
+                        <div
+                            class="card-footer"
+                            :style="`background-color:${randomColors[2]}`"
+                        >
+                            الموظفين
+                        </div>
                     </div>
                 </div>
                 <div class="col-4">
@@ -32,7 +42,12 @@
                                 {{ items.length }}
                             </h5>
                         </div>
-                        <div class="card-footer">Items</div>
+                        <div
+                            class="card-footer"
+                            :style="`background-color:${randomColors[3]}`"
+                        >
+                            المعدات
+                        </div>
                     </div>
                 </div>
             </div>
@@ -48,12 +63,21 @@ export default {
             employee: [],
             items: [],
             users: [],
+            randomColors: [],
         };
     },
     async mounted() {
         await this.getEmployee();
         await this.getItems();
         await this.getUsers();
+        for (let i = 0; i < 5; ) {
+            let randomColor = this.getRandomColor();
+
+            if (!this.randomColors.includes(randomColor)) {
+                this.randomColors.push(randomColor);
+                i++;
+            }
+        }
     },
     methods: {
         async getEmployee() {
@@ -65,6 +89,13 @@ export default {
             await axios.get("api/users").then((response) => {
                 this.users = response.data;
             });
+        },
+        getRandomColor() {
+            let random = Math.floor(Math.random() * 16777215).toString(16);
+            if (random.length < 6) {
+                random = "0" + random;
+            }
+            return `#${random}`;
         },
         async getItems() {
             await axios.get("api/items").then((response) => {
