@@ -13,5 +13,11 @@ class CustomerSeeder extends Seeder
     public function run(): void
     {
         //
+        \App\Models\Customer::factory(20)->create(
+            [
+                'name' => fake()->name(),
+                'phone' => fake()->phoneNumber(),
+            ]
+        );
     }
 }

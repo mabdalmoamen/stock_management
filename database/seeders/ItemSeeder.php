@@ -13,5 +13,13 @@ class ItemSeeder extends Seeder
     public function run(): void
     {
         //
+        \App\Models\Item::factory(20)->create([
+            'name' => fake()->name(),
+            'barcode' => fake()->ean8(),
+            'quantity' => fake()->numberBetween(1, 100),
+            'image' => fake()->imageUrl(),
+
+
+        ]);
     }
 }

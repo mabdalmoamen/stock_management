@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = ['name', 'barcode', 'image', 'quantity', 'created_at', 'updated_at'];
     // casts
     protected $casts = [
         'status' => 'boolean',

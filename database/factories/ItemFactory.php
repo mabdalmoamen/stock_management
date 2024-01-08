@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Item;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,15 @@ class ItemFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = Item::class;
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'barcode' => fake()->ean8(),
+            'quantity' => fake()->numberBetween(1, 100),
+            'image' => fake()->imageUrl(),
+
         ];
     }
 }
