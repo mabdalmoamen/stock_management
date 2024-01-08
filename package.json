@@ -10,8 +10,13 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@mdi/font": "^7.3.67",
+        "@popperjs/core": "^2.11.8",
         "@vitejs/plugin-vue": "^4.2.1",
+        "bootstrap": "^5.3.2",
+        "mitt": "^3.0.1",
         "vue": "^3.2.36",
-        "vue-loader": "^17.0.1"
+        "vue-loader": "^17.0.1",
+        "vue-router": "^4.0.3"
     }
 }
