@@ -60,8 +60,12 @@ class ItemController extends Controller
     public function show($id)
     {
         //
-        $item = Item::find($id);
-        return response()->json($item);
+        // find by id or barcode
+        $item = Item::where('id', $id)->orWhere('barcode', $id)->first();
+        if ($item) {
+
+            return response()->json($item);
+        }
     }
 
     /**

@@ -1,0 +1,174 @@
+{
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot": {
+    "file": "assets/materialdesignicons-webfont-0b183104.eot",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf": {
+    "file": "assets/materialdesignicons-webfont-61e8aba5.ttf",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff": {
+    "file": "assets/materialdesignicons-webfont-a5928a0d.woff",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff"
+  },
+  "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2": {
+    "file": "assets/materialdesignicons-webfont-662fefa8.woff2",
+    "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-a0bff7a5.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "assets": [
+      "assets/materialdesignicons-webfont-0b183104.eot",
+      "assets/materialdesignicons-webfont-662fefa8.woff2",
+      "assets/materialdesignicons-webfont-a5928a0d.woff",
+      "assets/materialdesignicons-webfont-61e8aba5.ttf"
+    ],
+    "css": [
+      "assets/app-a0bff7a5.css"
+    ],
+    "dynamicImports": [
+      "resources/js/components/auth/login.vue",
+      "resources/js/components/users/index.vue",
+      "resources/js/components/users/edit.vue",
+      "resources/js/components/users/create.vue",
+      "resources/js/components/auth/logout.vue",
+      "resources/js/components/new.vue",
+      "resources/js/components/items/index.vue",
+      "resources/js/components/items/edit.vue",
+      "resources/js/components/items/create.vue",
+      "resources/js/components/employees/index.vue",
+      "resources/js/components/employees/edit.vue",
+      "resources/js/components/employees/create.vue",
+      "resources/js/components/reports.vue"
+    ],
+    "file": "assets/app-0df0aeeb.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/components/auth/login.vue": {
+    "file": "assets/login-365512fc.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/auth/login.vue"
+  },
+  "resources/js/components/auth/logout.vue": {
+    "file": "assets/logout-35ec1fd3.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/auth/logout.vue"
+  },
+  "resources/js/components/employees/create.vue": {
+    "file": "assets/create-f349562d.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/employees/create.vue"
+  },
+  "resources/js/components/employees/edit.vue": {
+    "file": "assets/edit-e968163f.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/employees/edit.vue"
+  },
+  "resources/js/components/employees/index.vue": {
+    "file": "assets/index-76af428e.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/employees/index.vue"
+  },
+  "resources/js/components/items/create.vue": {
+    "file": "assets/create-80ac55d1.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/items/create.vue"
+  },
+  "resources/js/components/items/edit.vue": {
+    "file": "assets/edit-14f03c08.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/items/edit.vue"
+  },
+  "resources/js/components/items/index.vue": {
+    "file": "assets/index-1f30bdc5.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/items/index.vue"
+  },
+  "resources/js/components/new.css": {
+    "file": "assets/new-86b1df41.css",
+    "src": "resources/js/components/new.css"
+  },
+  "resources/js/components/new.vue": {
+    "css": [
+      "assets/new-86b1df41.css"
+    ],
+    "file": "assets/new-4fdf3896.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/new.vue"
+  },
+  "resources/js/components/reports.css": {
+    "file": "assets/reports-f37c21d6.css",
+    "src": "resources/js/components/reports.css"
+  },
+  "resources/js/components/reports.vue": {
+    "css": [
+      "assets/reports-f37c21d6.css"
+    ],
+    "file": "assets/reports-f79db99e.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/reports.vue"
+  },
+  "resources/js/components/users/create.vue": {
+    "file": "assets/create-9616579c.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/users/create.vue"
+  },
+  "resources/js/components/users/edit.vue": {
+    "file": "assets/edit-d26828ab.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/users/edit.vue"
+  },
+  "resources/js/components/users/index.vue": {
+    "file": "assets/index-9fd610ef.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/users/index.vue"
+  }
+}

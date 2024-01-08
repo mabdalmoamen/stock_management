@@ -6,6 +6,13 @@
                 <h5>صرف معدة</h5>
                 <input
                     type="text"
+                    placeholder="كود-باركود المعدة"
+                    class="form-control w-25"
+                    v-model="barcode"
+                    @change="findByBarcode()"
+                />
+                <input
+                    type="text"
                     placeholder="كود-جوال الموظف"
                     class="form-control w-25"
                     v-model="search"
@@ -137,6 +144,7 @@ export default {
             items: [],
             cart: [],
             form: {},
+            barcode: null,
         };
     },
     async mounted() {
@@ -163,6 +171,24 @@ export default {
                     this.employee = null;
                     console.log(error);
                 });
+        },
+        async findByBarcode() {
+            // find Item by barcode
+            if (this.barcode) {
+                await axios
+                    .get("api/items/" + this.barcode)
+                    .then((response) => {
+                        if (response.data) {
+                            this.addToCart(response.data);
+                            this.barcode = null;
+                        } else {
+                            alert("الباركود غير صحيح");
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
         },
         async updateQty(item) {
             if (item.qty < 1) {

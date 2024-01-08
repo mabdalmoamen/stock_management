@@ -14,3 +14,10 @@ export default {
     },
 };
 </script>
+<style>
+.active {
+    background-color: green;
+    color: white !important;
+    border-radius: 5px;
+}
+</style>
