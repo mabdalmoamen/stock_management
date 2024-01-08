@@ -48,7 +48,7 @@
                                         @click="addToCart(item)"
                                         style="cursor: pointer"
                                     >
-                                        <div class="card-body">
+                                        <div class="card-body p-0 m-0">
                                             <span
                                                 class="float-start position-absolute"
                                                 style="right: 0; top: 0"
@@ -63,12 +63,15 @@
                                                 {{ item.quantity }}
                                             </span>
                                             <img
+                                                class="card-img-top"
                                                 :src="item.image"
-                                                width="50"
-                                                height="50"
+                                                width="100"
+                                                height="100"
                                             />
                                             <!-- v-else add default image from placeholder -->
-                                            <div class="card-text text-end">
+                                            <div
+                                                class="card-text text-end p-0 m-0"
+                                            >
                                                 {{ item.name }}
                                             </div>
                                         </div>
@@ -92,29 +95,43 @@
                                     :key="item.id"
                                 >
                                     <div class="card mb-2">
-                                        <div class="card-body">
-                                            <div
-                                                class="d-flex justify-content-between"
+                                        <div class="card-body p-0 m-0">
+                                            <span
+                                                class="float-start position-absolute"
+                                                style="right: 0; top: 0"
+                                                :class="`
+                                                        ${
+                                                            item.quantity < 1
+                                                                ? 'badge bg-danger'
+                                                                : 'badge bg-success'
+                                                        }
+                                                    `"
                                             >
-                                                <img
-                                                    :src="item.image"
-                                                    width="50"
-                                                    height="50"
-                                                />
-                                                <h5 class="card-title">
-                                                    {{ item.name }}
-                                                </h5>
-                                                <button
-                                                    class="btn btn-xs btn-danger"
-                                                    @click="
-                                                        removeFromCart(item)
-                                                    "
-                                                >
-                                                    حذف
-                                                </button>
+                                                {{ item.quantity }}
+                                            </span>
+                                            <img
+                                                class="card-img-top"
+                                                :src="item.image"
+                                                width="100"
+                                                height="100"
+                                            />
+
+                                            <button
+                                                class="btn font-weight-bolder btn-danger float-start position-absolute"
+                                                style="left: 0; top: 0"
+                                                @click="removeFromCart(item)"
+                                            >
+                                                <!-- bootstrap delete button icon -->
+                                                X
+                                            </button>
+
+                                            <div
+                                                class="card-text text-end p-0 m-0"
+                                            >
+                                                {{ item.name }}
                                             </div>
                                         </div>
-                                        <div class="card-footer">
+                                        <div class="card-footer p-0 m-0">
                                             <input
                                                 class="form-control text-center"
                                                 type="number"

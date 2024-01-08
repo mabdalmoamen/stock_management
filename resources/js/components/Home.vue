@@ -8,7 +8,11 @@
                 <div class="col-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">
+                            <loader
+                                :loading="loadingUsers"
+                                v-if="loadingUsers"
+                            ></loader>
+                            <h5 v-else class="card-title">
                                 {{ users.length }}
                             </h5>
                         </div>
@@ -22,7 +26,11 @@
                 <div class="col-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">
+                            <loader
+                                :loading="loadingEmployee"
+                                v-if="loadingEmployee"
+                            ></loader>
+                            <h5 v-else class="card-title">
                                 {{ employee.length }}
                             </h5>
                         </div>
@@ -36,7 +44,11 @@
                 <div class="col-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">
+                            <loader
+                                :loading="loadingItems"
+                                v-if="loadingItems"
+                            ></loader>
+                            <h5 v-else class="card-title">
                                 {{ items.length }}
                             </h5>
                         </div>
@@ -65,7 +77,9 @@
 </template>
 
 <script>
+import Loader from "./loader.vue";
 export default {
+    components: { Loader },
     name: "Home",
     data() {
         return {
@@ -73,6 +87,10 @@ export default {
             items: [],
             users: [],
             randomColors: [],
+            loadingUsers: true,
+            loadingItems: true,
+            loadingEmployee: true,
+            error: null,
         };
     },
     async mounted() {
@@ -90,14 +108,30 @@ export default {
     },
     methods: {
         async getEmployee() {
-            await axios.get("api/customers").then((response) => {
-                this.employee = response.data;
-            });
+            this.loadingEmployee = true;
+            await axios
+                .get("api/customers")
+                .then((response) => {
+                    this.employee = response.data;
+                    this.loadingEmployee = false;
+                })
+                .catch((error) => {
+                    console.log(error);
+                    this.loadingEmployee = false;
+                });
         },
         async getUsers() {
-            await axios.get("api/users").then((response) => {
-                this.users = response.data;
-            });
+            this.loadingUsers = true;
+            await axios
+                .get("api/users")
+                .then((response) => {
+                    this.users = response.data;
+                    this.loadingUsers = false;
+                })
+                .catch((error) => {
+                    console.log(error);
+                    this.loadingUsers = false;
+                });
         },
         getRandomColor() {
             let random = Math.floor(Math.random() * 16777215).toString(16);
@@ -107,9 +141,17 @@ export default {
             return `#${random}`;
         },
         async getItems() {
-            await axios.get("api/items").then((response) => {
-                this.items = response.data;
-            });
+            this.loadingItems = true;
+            await axios
+                .get("api/items")
+                .then((response) => {
+                    this.items = response.data;
+                    this.loadingItems = false;
+                })
+                .catch((error) => {
+                    console.log(error);
+                    this.loadingItems = false;
+                });
         },
     },
 };

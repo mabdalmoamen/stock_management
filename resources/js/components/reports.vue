@@ -98,17 +98,7 @@
                     {{ error }}
                 </div>
 
-                <div v-if="loading">
-                    <div class="text-center">
-                        <div
-                            class="spinner-border text-primary"
-                            style="width: 3rem; height: 3rem"
-                            role="status"
-                        >
-                            <span class="sr-only"></span>
-                        </div>
-                    </div>
-                </div>
+                <Loader v-if="loading" :loading="loading" />
 
                 <div v-else class="table-responsive text-center">
                     <table class="table table-bordered">
@@ -236,6 +226,8 @@
 </template>
 
 <script>
+import Loader from "./loader.vue";
+
 export default {
     name: "reports",
     methods: {
@@ -293,7 +285,6 @@ export default {
                 });
         },
     },
-
     async mounted() {
         await this.getCustomers();
         await this.getUsers();
@@ -315,6 +306,7 @@ export default {
             items: [],
         };
     },
+    components: { Loader },
 };
 </script>
 
