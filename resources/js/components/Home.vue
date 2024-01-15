@@ -1,3 +1,6 @@
+
+
+<!-- كود الصفحة الرئيسية باستخدام فيو js -->
 <template>
     <div class="card text-center">
         <div class="card-header">
@@ -8,54 +11,39 @@
                 <div class="col-4">
                     <div class="card">
                         <div class="card-body">
-                            <loader
-                                :loading="loadingUsers"
-                                v-if="loadingUsers"
-                            ></loader>
+                            <loader :loading="loadingUsers" v-if="loadingUsers"></loader>
                             <h5 v-else class="card-title">
                                 {{ users.length }}
                             </h5>
                         </div>
                         <div class="card-footer">
-                            <router-link to="/users" class="nav-link"
-                                >المستخدمين</router-link
-                            >
+                            <router-link to="/users" class="nav-link">المستخدمين</router-link>
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="card">
                         <div class="card-body">
-                            <loader
-                                :loading="loadingEmployee"
-                                v-if="loadingEmployee"
-                            ></loader>
+                            <loader :loading="loadingEmployee" v-if="loadingEmployee"></loader>
                             <h5 v-else class="card-title">
                                 {{ employee.length }}
                             </h5>
                         </div>
                         <div class="card-footer">
-                            <router-link to="/employees" class="nav-link"
-                                >الموظفون</router-link
-                            >
+                            <router-link to="/employees" class="nav-link">الموظفون</router-link>
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="card">
                         <div class="card-body">
-                            <loader
-                                :loading="loadingItems"
-                                v-if="loadingItems"
-                            ></loader>
+                            <loader :loading="loadingItems" v-if="loadingItems"></loader>
                             <h5 v-else class="card-title">
                                 {{ items.length }}
                             </h5>
                         </div>
                         <div class="card-footer">
-                            <router-link to="/items" class="nav-link"
-                                >المعدات</router-link
-                            >
+                            <router-link to="/items" class="nav-link">المعدات</router-link>
                         </div>
                     </div>
                 </div>
@@ -65,9 +53,7 @@
                             <h5 class="card-title">؟</h5>
                         </div>
                         <div class="card-footer">
-                            <router-link to="/reports" class="nav-link"
-                                >التقارير</router-link
-                            >
+                            <router-link to="/reports" class="nav-link">التقارير</router-link>
                         </div>
                     </div>
                 </div>
@@ -97,7 +83,7 @@ export default {
         await this.getEmployee();
         await this.getItems();
         await this.getUsers();
-        for (let i = 0; i < 5; ) {
+        for (let i = 0; i < 5;) {
             let randomColor = this.getRandomColor();
 
             if (!this.randomColors.includes(randomColor)) {

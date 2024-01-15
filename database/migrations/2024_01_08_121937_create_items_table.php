@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //جدول العهده
         Schema::create('items', function (Blueprint $table) {
+            // حقول الجدول
             $table->id();
             $table->string('name');
             $table->string('quantity');

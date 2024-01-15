@@ -1,3 +1,4 @@
+<!-- واجهة التقارير باستخدام فيو js -->
 <template>
     <div>
         <div class="card">
@@ -6,27 +7,15 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group mb-2">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="كود-باركود-اسم الصنف"
-                                    v-model="filters.item_id"
-                                    @keyup="viewReport()"
-                                />
+                                <input type="text" class="form-control" placeholder="كود-باركود-اسم الصنف"
+                                    v-model="filters.item_id" @keyup="viewReport()" />
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group mx-2 mb-2">
-                                <select
-                                    class="form-control"
-                                    v-model="filters.customer_id"
-                                >
+                                <select class="form-control" v-model="filters.customer_id">
                                     <option :value="null">الموظف</option>
-                                    <option
-                                        v-for="customer in customers"
-                                        :key="customer.id"
-                                        :value="customer.id"
-                                    >
+                                    <option v-for="customer in customers" :key="customer.id" :value="customer.id">
                                         {{ customer.name }}
                                     </option>
                                 </select>
@@ -34,16 +23,9 @@
                         </div>
                         <div class="col-6">
                             <div class="form-group mx-2 mb-2">
-                                <select
-                                    class="form-control"
-                                    v-model="filters.user_id"
-                                >
+                                <select class="form-control" v-model="filters.user_id">
                                     <option :value="null">المستخدم</option>
-                                    <option
-                                        v-for="user in users"
-                                        :key="user.id"
-                                        :value="user.id"
-                                    >
+                                    <option v-for="user in users" :key="user.id" :value="user.id">
                                         {{ user.name }}
                                     </option>
                                 </select>
@@ -51,10 +33,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-group mx-2 mb-2">
-                                <select
-                                    class="form-control"
-                                    v-model="filters.in_use"
-                                >
+                                <select class="form-control" v-model="filters.in_use">
                                     <option :value="null">الحالة</option>
                                     <option value="1">مستلمه</option>
                                     <option value="0">غير مستلمه</option>
@@ -63,20 +42,12 @@
                         </div>
                         <div class="col-6">
                             <div class="form-group mx-2 mb-2">
-                                <input
-                                    type="date"
-                                    class="form-control"
-                                    v-model="filters.start_date"
-                                />
+                                <input type="date" class="form-control" v-model="filters.start_date" />
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group mx-2 mb-2">
-                                <input
-                                    type="date"
-                                    class="form-control"
-                                    v-model="filters.end_date"
-                                />
+                                <input type="date" class="form-control" v-model="filters.end_date" />
                             </div>
                         </div>
                     </div>
@@ -85,10 +56,7 @@
 
                     <!-- submit button -->
 
-                    <button
-                        type="submit"
-                        class="btn btn-primary mb-2 float-start"
-                    >
+                    <button type="submit" class="btn btn-primary mb-2 float-start">
                         بحث
                     </button>
                 </form>
@@ -113,86 +81,53 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr
-                                v-for="(report, index) in reports"
-                                :key="index"
-                                @click="setItems(report)"
-                                style="color: white; cursor: pointer"
-                                class="text-center text-light"
-                                :class="{ selected: index === selectedIndex }"
-                            >
-                                <th
-                                    :class="`${
-                                        report.in_use
-                                            ? 'bg-success'
-                                            : 'bg-danger'
-                                    }`"
-                                    scope="row"
-                                >
+                            <tr v-for="(report, index) in reports" :key="index" @click="setItems(report)"
+                                style="color: white; cursor: pointer" class="text-center text-light"
+                                :class="{ selected: index === selectedIndex }">
+                                <th :class="`${report.in_use
+                                    ? 'bg-success'
+                                    : 'bg-danger'
+                                    }`" scope="row">
                                     {{ index + 1 }}
                                 </th>
-                                <td
-                                    :class="`${
-                                        report.in_use
-                                            ? 'bg-success'
-                                            : 'bg-danger'
-                                    }`"
-                                >
+                                <td :class="`${report.in_use
+                                    ? 'bg-success'
+                                    : 'bg-danger'
+                                    }`">
                                     {{ report.customer.name }}
                                 </td>
-                                <td
-                                    :class="`${
-                                        report.in_use
-                                            ? 'bg-success'
-                                            : 'bg-danger'
-                                    }`"
-                                >
+                                <td :class="`${report.in_use
+                                    ? 'bg-success'
+                                    : 'bg-danger'
+                                    }`">
                                     {{ report.user.name }}
                                 </td>
-                                <td
-                                    :class="`${
-                                        report.in_use
-                                            ? 'bg-success'
-                                            : 'bg-danger'
-                                    }`"
-                                    class="text-center"
-                                >
-                                    <label
-                                        class="form-check-label"
-                                        style="cursor: pointer"
-                                    >
+                                <td :class="`${report.in_use
+                                    ? 'bg-success'
+                                    : 'bg-danger'
+                                    }`" class="text-center">
+                                    <label class="form-check-label" style="cursor: pointer">
                                         {{
                                             report.in_use
-                                                ? "مستلمه"
-                                                : "غير مستلمه"
+                                            ? "مستلمه"
+                                            : "غير مستلمه"
                                         }}
                                         <!-- update -->
-                                        <input
-                                            class="form-check-input"
-                                            type="checkbox"
-                                            v-model="report.in_use"
-                                            :checked="report.in_use"
-                                            @change="update(report)"
-                                        />
+                                        <input class="form-check-input" type="checkbox" v-model="report.in_use"
+                                            :checked="report.in_use" @change="update(report)" />
                                     </label>
                                 </td>
-                                <td
-                                    :class="`${
-                                        report.in_use
-                                            ? 'bg-success'
-                                            : 'bg-danger'
-                                    }`"
-                                >
+                                <td :class="`${report.in_use
+                                    ? 'bg-success'
+                                    : 'bg-danger'
+                                    }`">
                                     <!-- print date format   -->
                                     {{ report.created_at }}
                                 </td>
-                                <td
-                                    :class="`${
-                                        report.in_use
-                                            ? 'bg-success'
-                                            : 'bg-danger'
-                                    }`"
-                                >
+                                <td :class="`${report.in_use
+                                    ? 'bg-success'
+                                    : 'bg-danger'
+                                    }`">
                                     {{ report.updated_at }}
                                 </td>
                             </tr>
@@ -208,11 +143,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr
-                                v-for="(item, index) in items"
-                                :key="index"
-                                class="text-center"
-                            >
+                            <tr v-for="(item, index) in items" :key="index" class="text-center">
                                 <th scope="row">{{ index + 1 }}</th>
                                 <td>{{ item.item.name }}</td>
                                 <td>{{ item.quantity }}</td>
@@ -315,6 +246,7 @@ export default {
     background-color: rgb(68, 109, 77) !important;
     color: white;
 }
+
 table:first-of-type td {
     color: white;
     font-weight: bolder;

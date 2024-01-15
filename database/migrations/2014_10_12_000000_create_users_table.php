@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //انشاء جدول المستخدمين
         Schema::create('users', function (Blueprint $table) {
+            // حقول الجدول
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
