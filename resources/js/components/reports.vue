@@ -24,7 +24,7 @@
                         <div class="col-6">
                             <div class="form-group mx-2 mb-2">
                                 <select class="form-control" v-model="filters.user_id">
-                                    <option :value="null">المستخدم</option>
+                                    <option :value="null">مدير الجرد الحاسب</option>
                                     <option v-for="user in users" :key="user.id" :value="user.id">
                                         {{ user.name }}
                                     </option>
@@ -72,22 +72,21 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">M</th>
                                 <th scope="col">العميل</th>
-                                <th scope="col">المستخدم</th>
+                                <th scope="col">مدير الجرد الحاسب</th>
                                 <th scope="col">الحالة</th>
-                                <th scope="col">تاريخ الصرف</th>
-                                <th scope="col">تاريخ التسليم</th>
+                                <th scope="col">تاريخ دخول العهدة</th>
+                                <th scope="col">تاريخ خروج العهدة</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(report, index) in reports" :key="index" @click="setItems(report)"
-                                style="color: white; cursor: pointer" class="text-center text-light"
-                                :class="{ selected: index === selectedIndex }">
+                            <tr v-for="(report, index) in reports" :key="index" style="color: white; cursor: pointer"
+                                class="text-center text-light" :class="{ selected: index === selectedIndex }">
                                 <th :class="`${report.in_use
                                     ? 'bg-success'
                                     : 'bg-danger'
-                                    }`" scope="row">
+                                    }`" scope="row" @click="setItems(report)">
                                     {{ index + 1 }}
                                 </th>
                                 <td :class="`${report.in_use
@@ -138,7 +137,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">المنتج</th>
+                                <th scope="col">العهد</th>
                                 <th scope="col">الكمية</th>
                             </tr>
                         </thead>

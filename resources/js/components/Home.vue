@@ -17,7 +17,7 @@
                             </h5>
                         </div>
                         <div class="card-footer">
-                            <router-link to="/users" class="nav-link">المستخدمين</router-link>
+                            <router-link to="/users" class="nav-link">مدير الجرد الحاسب</router-link>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                             </h5>
                         </div>
                         <div class="card-footer">
-                            <router-link to="/items" class="nav-link">المعدات</router-link>
+                            <router-link to="/items" class="nav-link">العهد</router-link>
                         </div>
                     </div>
                 </div>

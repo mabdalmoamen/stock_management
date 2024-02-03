@@ -4,14 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        //انشاء جدول المستخدمين
+        //انشاء جدول مدير الجرد الحاسب
         Schema::create('users', function (Blueprint $table) {
             // حقول الجدول
             $table->id();

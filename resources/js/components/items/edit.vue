@@ -2,7 +2,9 @@
     <div class="row justify-content-center">
         <div class="col-6">
             <div class="card">
-                <div class="card-header"><h5>تعديل المعدة</h5></div>
+                <div class="card-header">
+                    <h5>تعديل العهدة</h5>
+                </div>
                 <div class="card-body">
                     <div class="alert alert-sm alert-danger" v-if="error">
                         {{ error }}
@@ -10,38 +12,17 @@
                     <form @submit.prevent="update">
                         <div class="form-group mb-3">
                             <label class="mb-1" for="name">الاسم</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="name"
-                                v-model="form.name"
-                                required
-                            />
+                            <input type="text" class="form-control" id="name" v-model="form.name" required />
                         </div>
                         <div class="form-group mb-3">
                             <label class="mb-1" for="barcode">الباركود</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="barcode"
-                                v-model="form.barcode"
-                            />
+                            <input type="text" class="form-control" id="barcode" v-model="form.barcode" />
                         </div>
                         <div class="form-group mb-3">
                             <label class="mb-1" for="qty">المخزون</label>
-                            <input
-                                type="number"
-                                required
-                                min="0"
-                                class="form-control"
-                                id="qty"
-                                v-model="form.quantity"
-                            />
+                            <input type="number" required min="0" class="form-control" id="qty" v-model="form.quantity" />
                         </div>
-                        <button
-                            type="submit"
-                            class="btn btn-primary text-center m-auto float-start"
-                        >
+                        <button type="submit" class="btn btn-primary text-center m-auto float-start">
                             تحديث
                         </button>
                     </form>

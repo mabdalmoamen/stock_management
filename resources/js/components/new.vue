@@ -4,26 +4,11 @@
             <!-- search filed to get employees -->
             <div class="d-flex justify-content-around">
                 <h5>صرف معدة</h5>
-                <input
-                    type="text"
-                    placeholder="كود-باركود المعدة"
-                    class="form-control w-25"
-                    v-model="barcode"
-                    @change="findByBarcode()"
-                />
-                <input
-                    type="text"
-                    placeholder="كود-جوال الموظف"
-                    class="form-control w-25"
-                    v-model="search"
-                    @keyup="findEmployee()"
-                />
-                <input
-                    class="form-control w-25"
-                    readonly
-                    v-if="employee"
-                    :value="employee.name"
-                />
+                <input type="text" placeholder="خيارات" class="form-control w-25" v-model="barcode"
+                    @change="findByBarcode()" />
+                <input type="text" placeholder="رقم الجوال" class="form-control w-25" v-model="search"
+                    @keyup="findEmployee()" />
+                <input class="form-control w-25" readonly v-if="employee" :value="employee.name" />
 
                 <button class="btn btn-primary" @click="submit()">حفظ</button>
             </div>
@@ -33,45 +18,25 @@
                 <div class="col-6">
                     <div class="card min-vh-100" v-if="items.length">
                         <div class="card-header">
-                            <h5 class="card-title text-end">المعدات</h5>
+                            <h5 class="card-title text-end">العهد</h5>
                         </div>
                         <div class="card-body m-0 p-0">
                             <!-- get list of items in cards -->
                             <div class="row">
-                                <div
-                                    class="col-4"
-                                    v-for="item in items"
-                                    :key="item.id"
-                                >
-                                    <div
-                                        class="card mb-2"
-                                        @click="addToCart(item)"
-                                        style="cursor: pointer"
-                                    >
+                                <div class="col-4" v-for="item in items" :key="item.id">
+                                    <div class="card mb-2" @click="addToCart(item)" style="cursor: pointer">
                                         <div class="card-body p-0 m-0">
-                                            <span
-                                                class="float-start position-absolute"
-                                                style="right: 0; top: 0"
-                                                :class="`
-                                                        ${
-                                                            item.quantity < 1
-                                                                ? 'badge bg-danger'
-                                                                : 'badge bg-success'
-                                                        }
-                                                    `"
-                                            >
+                                            <span class="float-start position-absolute" style="right: 0; top: 0" :class="`
+                                                        ${item.quantity < 1
+                                                    ? 'badge bg-danger'
+                                                    : 'badge bg-success'
+                                                }
+                                                    `">
                                                 {{ item.quantity }}
                                             </span>
-                                            <img
-                                                class="card-img-top"
-                                                :src="item.image"
-                                                width="100"
-                                                height="100"
-                                            />
+                                            <img class="card-img-top" :src="item.image" width="100" height="100" />
                                             <!-- v-else add default image from placeholder -->
-                                            <div
-                                                class="card-text text-end p-0 m-0"
-                                            >
+                                            <div class="card-text text-end p-0 m-0">
                                                 {{ item.name }}
                                             </div>
                                         </div>
@@ -89,56 +54,32 @@
                         <div class="card-body m-0 p-0">
                             <!-- get list of cart in cards -->
                             <div class="row">
-                                <div
-                                    class="col-6"
-                                    v-for="item in cart"
-                                    :key="item.id"
-                                >
+                                <div class="col-6" v-for="item in cart" :key="item.id">
                                     <div class="card mb-2">
                                         <div class="card-body p-0 m-0">
-                                            <span
-                                                class="float-start position-absolute"
-                                                style="right: 0; top: 0"
-                                                :class="`
-                                                        ${
-                                                            item.quantity < 1
-                                                                ? 'badge bg-danger'
-                                                                : 'badge bg-success'
-                                                        }
-                                                    `"
-                                            >
+                                            <span class="float-start position-absolute" style="right: 0; top: 0" :class="`
+                                                        ${item.quantity < 1
+                                                    ? 'badge bg-danger'
+                                                    : 'badge bg-success'
+                                                }
+                                                    `">
                                                 {{ item.quantity }}
                                             </span>
-                                            <img
-                                                class="card-img-top"
-                                                :src="item.image"
-                                                width="100"
-                                                height="100"
-                                            />
+                                            <img class="card-img-top" :src="item.image" width="100" height="100" />
 
-                                            <button
-                                                class="btn font-weight-bolder btn-danger float-start position-absolute"
-                                                style="left: 0; top: 0"
-                                                @click="removeFromCart(item)"
-                                            >
+                                            <button class="btn font-weight-bolder btn-danger float-start position-absolute"
+                                                style="left: 0; top: 0" @click="removeFromCart(item)">
                                                 <!-- bootstrap delete button icon -->
                                                 X
                                             </button>
 
-                                            <div
-                                                class="card-text text-end p-0 m-0"
-                                            >
+                                            <div class="card-text text-end p-0 m-0">
                                                 {{ item.name }}
                                             </div>
                                         </div>
                                         <div class="card-footer p-0 m-0">
-                                            <input
-                                                class="form-control text-center"
-                                                type="number"
-                                                min="1"
-                                                v-model="item.qty"
-                                                @change="updateQty(item)"
-                                            />
+                                            <input class="form-control text-center" type="number" min="1" v-model="item.qty"
+                                                @change="updateQty(item)" />
                                         </div>
                                     </div>
                                 </div>
@@ -242,7 +183,7 @@ export default {
         async addToCart(item) {
             // check if item already in cart
             if (this.cart.indexOf(item) !== -1) {
-                alert("هذه المعدة موجودة في السلة");
+                alert("هذه العهدة موجودة في السلة");
                 return;
             }
             item.qty = 1;

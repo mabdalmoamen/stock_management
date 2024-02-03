@@ -2,16 +2,9 @@
     <div class="card mt-2">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <h5 class="card-title">المعدات</h5>
-                <router-link to="/items/create" class="btn btn-primary"
-                    >اضافة</router-link
-                >
-                <input
-                    type="text"
-                    v-model="search"
-                    placeholder="البيان"
-                    class="form-control w-25"
-                />
+                <h5 class="card-title">العهد</h5>
+                <router-link to="/items/create" class="btn btn-primary">اضافة</router-link>
+                <input type="text" v-model="search" placeholder="البيان" class="form-control w-25" />
             </div>
         </div>
         <div class="card-body table-responsive p-0">
@@ -34,15 +27,8 @@
                         </td>
                         <td>{{ item.barcode }}</td>
                         <td>
-                            <router-link
-                                :to="`/items/${item.id}`"
-                                class="btn btn-primary mx-2"
-                                >تعديل</router-link
-                            >
-                            <button
-                                class="btn btn-danger"
-                                @click="deleteItem(item.id)"
-                            >
+                            <router-link :to="`/items/${item.id}`" class="btn btn-primary mx-2">تعديل</router-link>
+                            <button class="btn btn-danger" @click="deleteItem(item.id)">
                                 حذف
                             </button>
                         </td>

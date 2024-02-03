@@ -2,16 +2,9 @@
     <div class="card mt-2">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <h5 class="card-title">المستخدمون</h5>
-                <router-link to="/users/create" class="btn btn-primary"
-                    >اضافة</router-link
-                >
-                <input
-                    type="text"
-                    v-model="search"
-                    placeholder="الاسم"
-                    class="form-control w-25"
-                />
+                <h5 class="card-title">مدير الجرد الحاسبون</h5>
+                <router-link to="/users/create" class="btn btn-primary">اضافة</router-link>
+                <input type="text" v-model="search" placeholder="الاسم" class="form-control w-25" />
             </div>
         </div>
         <div class="card-body table-responsive p-0">
@@ -28,15 +21,8 @@
                         <td>{{ item.name }}</td>
                         <td>{{ item.email }}</td>
                         <td>
-                            <router-link
-                                :to="`/users/${item.id}`"
-                                class="btn btn-primary mx-2"
-                                >تعديل</router-link
-                            >
-                            <button
-                                class="btn btn-danger"
-                                @click="deleteItem(item.id)"
-                            >
+                            <router-link :to="`/users/${item.id}`" class="btn btn-primary mx-2">تعديل</router-link>
+                            <button class="btn btn-danger" @click="deleteItem(item.id)">
                                 حذف
                             </button>
                         </td>
@@ -79,7 +65,7 @@ export default {
         },
         async deleteItem(id) {
             // confirm delete
-            if (!confirm("هل أنت متأكد من حذف هذا المستخدم؟")) return;
+            if (!confirm("هل أنت متأكد من حذف هذا مدير الجرد الحاسب؟")) return;
             await axios
                 .delete(`/api/users/${id}`)
                 .then((response) => {
