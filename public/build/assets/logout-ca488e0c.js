@@ -1,0 +1,1 @@
+import{_ as t}from"./app-d3d68439.js";const e={name:"Logout",methods:{logout(){axios.post("/api/logout").then(o=>{localStorage.removeItem("token"),this.$router.push({name:"login"})})}}};function s(o,n,r,a,p,u){return null}const l=t(e,[["render",s]]);export{l as default};

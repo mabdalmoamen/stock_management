@@ -1,8 +1,8 @@
 <template>
     <div class="text-center" v-if="loading">
-        <div class="spinner-grow text-info" role="status">
+        <!-- <div class="spinner-grow text-info" role="status">
             <span class="visually-hidden">Loading...</span>
-        </div>
+        </div> -->
     </div>
 </template>
 

@@ -30,7 +30,7 @@
                             </h5>
                         </div>
                         <div class="card-footer">
-                            <router-link to="/employees" class="nav-link">الموظفون</router-link>
+                            <router-link to="/employees" class="nav-link">الموظفون القاعة المكتبة</router-link>
                         </div>
                     </div>
                 </div>
