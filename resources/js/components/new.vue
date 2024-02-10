@@ -63,7 +63,7 @@
                                                     : 'badge bg-success'
                                                 }
                                                     `">
-                                                {{ item.quantity }}
+                                                {{ item.qty }}
                                             </span>
                                             <img class="card-img-top" :src="item.image" width="100" height="100" />
 

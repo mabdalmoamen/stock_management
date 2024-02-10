@@ -69,7 +69,7 @@ class InUseController extends Controller
             Item::where('id', $content['id'])->update(['quantity' =>
             Item::where('id', $content['id'])->first()->quantity - $content['qty']]);
             $inUseItem->item_id = $content['id'];
-            $inUseItem->quantity = $content['quantity'];
+            $inUseItem->quantity = $content['qty'];
             $inUseItem->save();
         }
     }
@@ -96,7 +96,7 @@ class InUseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,  $id)
+    public function update(Request $request, $id)
     {
         //
         $inUse = InUse::find($id);
